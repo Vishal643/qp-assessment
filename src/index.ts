@@ -7,7 +7,7 @@ import { userRouter } from "./routes/user";
 import { groceryRouter } from "./routes/grocery";
 import cookieParser from "cookie-parser";
 import "reflect-metadata";
-import { DataSource } from "typeorm";
+import { DataSource, DataSourceOptions } from "typeorm";
 
 const app = express();
 
@@ -45,7 +45,7 @@ async function startServer() {
   });
 }
 
-export const AppDataSource = new DataSource({
+const dataSourceParams: DataSourceOptions = {
   type: "postgres",
   host: process.env.DB_HOST,
   port: parseInt(process.env.DB_PORT || "5432"),
@@ -53,12 +53,17 @@ export const AppDataSource = new DataSource({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
   synchronize: process.env.DB_SYNCHRONIZE === "true", // This will create database schema automatically
-  //   ssl: {
-  //     rejectUnauthorized: false // Bypass SSL certificate validation
-  //   },
   entities: ["src/entity/**/*.ts"],
   logging: process.env.DB_LOGGING === "true"
-});
+};
+
+if (process.env.DB_HOST !== "localhost") {
+  (dataSourceParams as any).ssl = {
+    rejectUnauthorized: false // Bypass SSL certificate validation
+  };
+}
+
+export const AppDataSource = new DataSource(dataSourceParams);
 
 AppDataSource.initialize()
   .then(() => {
