@@ -6,7 +6,6 @@ import cors from "cors";
 import { userRouter } from "./routes/user";
 import { groceryRouter } from "./routes/grocery";
 import cookieParser from "cookie-parser";
-import "reflect-metadata";
 import { DataSource, DataSourceOptions } from "typeorm";
 
 const app = express();
