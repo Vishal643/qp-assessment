@@ -7,11 +7,11 @@
 5. Run `npm run dev:start` command
 6. I am using Postgres as database so make sure you have it installed and running or you can use the docker-compose file to run the database
 
-# db url = postgresql://questionpro:questionpro@123@localhost:5432/questionpro?schema=public
+### db url = postgresql://questionpro:questionpro@123@localhost:5432/questionpro?schema=public
 
 # Endpoints to test
 
-# Deployed API => https://bitespeed-f833.onrender.com
+# Deployed API =>https://qp-assessment-uo7r.onrender.com
 
 1. Health check endpoint
     - Method: GET

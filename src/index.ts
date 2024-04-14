@@ -32,7 +32,7 @@ const port = process.env.SERVER_PORT || 4040;
 const baseRoute = "/api/v1";
 
 async function startServer() {
-  app.get("/health-check", (req, res) => {
+  app.get(`${baseRoute}/health-check`, (req, res) => {
     res.status(200).send(`Service is running on port ${port}, hostname: ${req.hostname}`);
   });
 
