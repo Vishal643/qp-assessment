@@ -11,14 +11,14 @@
 
 # Endpoints to test
 
-# Deployed API =>https://qp-assessment-uo7r.onrender.com
+# Deployed API =https://qp-assessment-uo7r.onrender.com
 
 1. Health check endpoint
     - Method: GET
     - URL: /health-check
     - Description: This endpoint is used to check the health of the application
     - Example: http://localhost:4040/api/v1/health-check
-    - Example: https://bitespeed-f833.onrender.com/health-check
+    - Example: https://questionpro-f833.onrender.com/health-check
 
 - Register a User
     - Route : `http://localhost:4040/api/v1/users/signup`
